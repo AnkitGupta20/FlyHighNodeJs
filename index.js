@@ -6,12 +6,15 @@ const app = express();
 app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 
-app.listen(3000, () => {
+const port = process.env.PORT || '3000'
+app.listen(port, () => {
     console.log("The server started on port 3000");
 });
 app.get("/", (req, res) => {
     res.send("Welcome to FlyHigh Project");
 });
+
+
 
 app.post("/sendmail", (req, res) => {
     console.log("request came");
