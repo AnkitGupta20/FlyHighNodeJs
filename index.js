@@ -83,6 +83,6 @@ async function sendMail(input, callback) {
     </div>`
     }
 
-    let info = transporter.sendMail(mailOptions);
+    let info = await transporter.sendMail(mailOptions);
     callback(info);
 }
