@@ -17,18 +17,23 @@ app.get("/", (req, res) => {
 
 
 app.post("/sendmail", (req, res) => {
-    console.log("request came");
-    console.log(req.body);
-    let input = req.body;
+    try {
+        console.log("request came");
+        console.log(req.body);
+        let input = req.body;
 
-    sendMail(input, info => {
-        console.log("Email has been sent");
-        res.send(info);
+        sendMail(input, info => {
+            console.log("Email has been sent");
+            res.send(info);
 
-    });
+        });
+    } catch (err) {
+        console.log('error in email sending');
+        console.log(err);
+    }
 });
 
-function sendMail(input, callback) {
+async function sendMail(input, callback) {
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 587,
