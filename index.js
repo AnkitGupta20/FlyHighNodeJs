@@ -28,7 +28,7 @@ app.post("/sendmail", (req, res) => {
     });
 });
 
-async function sendMail(input, callback) {
+function sendMail(input, callback) {
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 587,
@@ -41,7 +41,7 @@ async function sendMail(input, callback) {
 
     let mailOptions = {
         from: '"Ankit Gupta"<akki719871@gmail.com>',
-        to: 'akki.gupta20@gmail.com',
+        to: ['akki.gupta20@gmail.com', 'bhuppi890109@gmail.com'],
         subject: input.subject,
         html: `<div>
         <font face="georgia, serif">Hi Team,</font>
