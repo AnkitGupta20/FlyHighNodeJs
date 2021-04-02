@@ -9,6 +9,9 @@ app.use(bodyParser.json());
 app.listen(3000, () => {
     console.log("The server started on port 3000");
 });
+app.get("/", (req, res) => {
+    res.send("Welcome to FlyHigh Project");
+});
 
 app.post("/sendmail", (req, res) => {
     console.log("request came");
