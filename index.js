@@ -32,7 +32,7 @@ function sendMail(input, callback) {
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 587,
-        secure: false,
+        secure: true,
         auth: {
             user: "akki719871@gmail.com",
             pass: "Dyansh@1234"
